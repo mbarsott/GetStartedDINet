@@ -17,7 +17,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -101,10 +101,27 @@
       <Project>{fb73371a-01fa-40cc-a59f-408185dd5450}</Project>
       <Name>PeopleViewer.View</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersonDataReader.CSV\PersonDataReader.CSV.csproj">
+      <Project>{5936743c-6833-46ea-b9ce-eac77cb20f4c}</Project>
+      <Name>PersonDataReader.CSV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonDataReader.Decorators\PersonDataReader.Decorators.csproj">
+      <Project>{4c718799-35d5-4531-9844-cae1c37803b7}</Project>
+      <Name>PersonDataReader.Decorators</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PersonDataReader.Service\PersonDataReader.Service.csproj">
       <Project>{CA99E8C7-8790-4FA2-9787-C8E5DB9E356E}</Project>
       <Name>PersonDataReader.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersonDataReader.SQL\PersonDataReader.SQL.csproj">
+      <Project>{42c601e1-a277-4a7e-9d6f-54b099def2fd}</Project>
+      <Name>PersonDataReader.SQL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(SolutionDir)AdditionalFiles\*.*" "$(TargetDir)" /Y
+xcopy "$(SolutionDir)AdditionalFiles\x86\*.*" "$(TargetDir)" /Y
+xcopy "$(SolutionDir)AdditionalFiles\x64\*.*" "$(TargetDir)" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
