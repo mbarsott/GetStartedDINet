@@ -122,6 +122,7 @@
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(SolutionDir)AdditionalFiles\*.*" "$(TargetDir)" /Y
 xcopy "$(SolutionDir)AdditionalFiles\x86\*.*" "$(TargetDir)" /Y
-xcopy "$(SolutionDir)AdditionalFiles\x64\*.*" "$(TargetDir)" /Y</PostBuildEvent>
+xcopy "$(SolutionDir)AdditionalFiles\x64\*.64" "$(TargetDir)\*.dll" /Y
+</PostBuildEvent>
   </PropertyGroup>
 </Project>
